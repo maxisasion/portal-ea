@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal EA License Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5649c0;
+            --primary-light: #a29bfe;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --gray: #636e72;
+            --light-gray: #dfe6e9;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #d63031;
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --box-shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Login Container */
+        .login-container {
+            width: 100%;
+            max-width: 480px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-lg);
+            overflow: hidden;
+            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--gradient);
+            z-index: 2;
+        }
+
+        .login-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(108, 92, 231, 0.3));
+        }
+
+        .login-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .login-subtitle {
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-size: 15px;
+            max-width: 80%;
+        }
+
+        .mentor-promo {
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: var(--border-radius-sm);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .mentor-promo h3 {
+            color: var(--primary-dark);
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mentor-promo p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .mentor-promo .price {
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: rgba(255,255,255,0.8);
+            padding: 3px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .login-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            background-color: white;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
+            border-radius: var(--border-radius);
+            border: none;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn:hover::after {
+            opacity: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(108, 92, 231, 0.05);
+        }
+
+        .btn-icon {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn-group .btn {
+            flex: 1;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--dark);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast i {
+            font-size: 18px;
+        }
+
+        .toast.success i {
+            color: var(--success);
+        }
+
+        .toast.error i {
+            color: var(--danger);
+        }
+
+        /* Main Container (hidden initially) */
+        .container {
+            width: 100%;
+            max-width: 680px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-lg);
+            overflow: hidden;
+            display: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--gradient);
+            z-index: 2;
+        }
+
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            background-color: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 16px;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+        }
+
+        .license-display {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            border: 1px dashed #b2bec3;
+            transition: var(--transition);
+        }
+
+        .license-display:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .license-key {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            letter-spacing: 1px;
+            margin: 20px 0;
+            word-break: break-all;
+            padding: 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--light-gray);
+        }
+
+        .license-placeholder {
+            color: var(--gray);
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--primary);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: rgba(108, 92, 231, 0.2);
+            transform: scale(1.1);
+        }
+
+        .copy-btn i {
+            font-size: 16px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Generation Steps */
+        .generation-steps {
+            display: none;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .license-details {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .expiry-date {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .mentor-info {
+            background: rgba(108, 92, 231, 0.05);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mentor-info i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .mentor-info-text h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .mentor-info-text p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            .login-container, .container {
+                padding: 25px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .login-title {
+                font-size: 28px;
+            }
+
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .license-key {
+                font-size: 18px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Dashboard -->
+    <div class="login-container" id="login-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3344/3344372.png" alt="AI Robot">
+        <h1 class="login-title">SIGNAL EA</h1>
+        <p class="login-subtitle">Advanced Trading Algorithm License Portal</p>
+        
+        <div class="mentor-promo">
+            <h3><i class="fas fa-crown"></i> Become a Signal EA Mentor</h3>
+            <p>Get your own mentor ID and start generating license keys for your clients</p>
+            <span class="price">Only R350 once off</span>
+        </div>
+        
+        <form class="login-form" id="login-form">
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt btn-icon"></i> Sign In
+            </button>
+        </form>
+    </div>
+    
+    <!-- Main License Portal (hidden initially) -->
+    <div class="container" id="main-container">
+        <div class="header">
+            <h1><i class="fas fa-key"></i>Signal EA PORTAL</h1>
+            <p>Generate and manage license keys for mentor IDs</p>
+        </div>
+        
+        <div class="content">
+            <!-- Initial view -->
+            <div id="initial-view">
+                <button id="start-generation" class="btn btn-primary" style="animation: pulse 2s infinite;">
+                    <i class="fas fa-plus-circle btn-icon"></i> Generate New License Key
+                </button>
+                
+                <div class="mentor-info">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="mentor-info-text">
+                        <h4>Mentor Program</h4>
+                        <p>Become a mentor for just R350 once off and get your own mentor ID to generate unlimited license keys for your clients.</p>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="available-ids">100</div>
+                        <div class="stat-label">IDs Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="keys-generated">0</div>
+                        <div class="stat-label">Keys Generated</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Generation Steps -->
+            <div id="generation-steps" class="generation-steps">
+                <!-- Step 1: Select Mentor ID -->
+                <div class="step" id="step-1">
+                    <div class="form-group">
+                        <label for="mentor-id" class="form-label">Select Mentor ID</label>
+                        <select id="mentor-id" class="form-select">
+                            <option value="">-- Select a Mentor ID --</option>
+                            <option value="1001">1001 - John Smith</option>
+                            <option value="1002">1002 - Sarah Johnson</option>
+                            <option value="1003">1003 - Michael Brown</option>
+                            <option value="1004">1004 - Emily Davis</option>
+                            <option value="1005">1005 - Robert Wilson</option>
+                            <option value="1006">1006 - Jennifer Lee</option>
+                            <option value="1007">1007 - David Taylor</option>
+                            <option value="1008">1008 - Jessica Martinez</option>
+                            <option value="1009">1009 - William Anderson</option>
+                            <option value="1010">1010 - Amanda Thomas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-secondary" id="cancel-generation">
+                            <i class="fas fa-times btn-icon"></i> Cancel
+                        </button>
+                        <button class="btn btn-primary" id="next-to-step-2">
+                            <i class="fas fa-arrow-right btn-icon"></i> Next
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Enter User Details -->
+                <div class="step" id="step-2">
+                    <div class="mentor-info">
+                        <i class="fas fa-user-tie"></i>
+                        <div class="mentor-info-text">
+                            <h4 id="current-mentor-display">Mentor: Not Selected</h4>
+                            <p>You're generating a license key for this mentor ID</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-name" class="form-label">User Full Name</label>
+                        <input type="text" id="user-name" class="form-input" placeholder="Enter user's full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="license-period" class="form-label">License Period</label>
+                        <select id="license-period" class="form-select">
+                            <option value="30">1 Month</option>
+                            <option value="90">3 Months</option>
+                            <option value="180">6 Months</option>
+                            <option value="365">1 Year</option>
+                            <option value="730">2 Years</option>
+                        </select>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-secondary" id="back-to-step-1">
+                            <i class="fas fa-arrow-left btn-icon"></i> Back
+                        </button>
+                        <button class="btn btn-primary" id="generate-license">
+                            <i class="fas fa-key btn-icon"></i> Generate License
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Display License -->
+                <div class="step" id="step-3">
+                    <div class="license-display">
+                        <button class="copy-btn" id="copy-btn" title="Copy to clipboard">
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <div>License Key:</div>
+                        <div id="license-key" class="license-key"></div>
+                    </div>
+                    
+                    <div class="license-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Mentor ID:</span>
+                            <span class="detail-value" id="detail-mentor-id"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Mentor Name:</span>
+                            <span class="detail-value" id="detail-mentor-name"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">User Name:</span>
+                            <span class="detail-value" id="detail-user-name"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Generated On:</span>
+                            <span class="detail-value" id="detail-generated-date"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Expires On:</span>
+                            <span class="detail-value expiry-date" id="detail-expiry-date"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-secondary" id="generate-another">
+                            <i class="fas fa-plus btn-icon"></i> Generate Another
+                        </button>
+                        <button class="btn btn-primary" id="finish-generation">
+                            <i class="fas fa-check btn-icon"></i> Finish
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">License key copied!</span>
+    </div>
+
+    <script>
+        // License key data with mentor names
+        const mentorData = {
+            "1001": { name: "John Smith", keys: ["L1C3-1001-5A8D-F2E9", "G7H2-1001-9B4C-6D3E", "K9J4-1001-1E8F-7A2C"] },
+            "1002": { name: "Sarah Johnson", keys: ["B3C5-1002-1D9E-8F2A", "D7E2-1002-4F6B-3C9D", "F9G4-1002-7A8C-5E1B"] },
+            "1003": { name: "Michael Brown", keys: ["X3Y5-1003-2F1E-8A9B", "Z7A2-1003-5D6C-4E3F", "B9C4-1003-8E9F-7A1D"] },
+            "1004": { name: "Emily Davis", keys: ["T3U5-1004-4D5E-1F2C", "V7W2-1004-7F8E-9A3B", "X9Y4-1004-1C2D-5E6F"] },
+            "1005": { name: "Robert Wilson", keys: ["P3Q5-1005-9D1E-6F2C", "R7S2-1005-4E5F-3A8D", "T9U4-1005-1B2C-7E9F"] },
+            "1006": { name: "Jennifer Lee", keys: ["K3L5-1006-7E8F-1A2D", "M7N2-1006-3B4C-9D6E", "P9Q4-1006-5F6E-8A7D"] },
+            "1007": { name: "David Taylor", keys: ["F3G5-1007-9E1F-4A2D", "H7J2-1007-5B6C-8D3E", "K9L4-1007-2D3E-7F9C"] },
+            "1008": { name: "Jessica Martinez", keys: ["B3C5-1008-8A9B-7C6D", "D7E2-1008-4E5F-1D2C", "F9G4-1008-9B1C-8E3F"] },
+            "1009": { name: "William Anderson", keys: ["X3Y5-1009-9F1E-6A2D", "Z7A2-1009-4B5C-8D7E", "B9C4-1009-3E4F-1A9D"] },
+            "1010": { name: "Amanda Thomas", keys: ["T3U5-1010-5A6B-9C8D", "V7W2-1010-2E3F-1D4C", "X9Y4-1010-7B8C-5E6F"] }
+        };
+
+        // DOM elements
+        const loginContainer = document.getElementById('login-container');
+        const mainContainer = document.getElementById('main-container');
+        const loginForm = document.getElementById('login-form');
+        const initialView = document.getElementById('initial-view');
+        const generationSteps = document.getElementById('generation-steps');
+        const steps = document.querySelectorAll('.step');
+        
+        // Step 1 elements
+        const mentorIdSelect = document.getElementById('mentor-id');
+        const nextToStep2Btn = document.getElementById('next-to-step-2');
+        const currentMentorDisplay = document.getElementById('current-mentor-display');
+        
+        // Step 2 elements
+        const userNameInput = document.getElementById('user-name');
+        const licensePeriodSelect = document.getElementById('license-period');
+        const backToStep1Btn = document.getElementById('back-to-step-1');
+        const generateLicenseBtn = document.getElementById('generate-license');
+        
+        // Step 3 elements
+        const licenseKeyElement = document.getElementById('license-key');
+        const copyBtn = document.getElementById('copy-btn');
+        const detailMentorId = document.getElementById('detail-mentor-id');
+        const detailMentorName = document.getElementById('detail-mentor-name');
+        const detailUserName = document.getElementById('detail-user-name');
+        const detailGeneratedDate = document.getElementById('detail-generated-date');
+        const detailExpiryDate = document.getElementById('detail-expiry-date');
+        const generateAnotherBtn = document.getElementById('generate-another');
+        const finishGenerationBtn = document.getElementById('finish-generation');
+        
+        // Other elements
+        const startGenerationBtn = document.getElementById('start-generation');
+        const cancelGenerationBtn = document.getElementById('cancel-generation');
+        const availableIdsElement = document.getElementById('available-ids');
+        const keysGeneratedElement = document.getElementById('keys-generated');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+
+        // State
+        let availableIds = 100;
+        let keysGenerated = 0;
+        let currentKeyIndex = {};
+        let usedIds = new Set();
+        let currentMentorId = null;
+        let currentMentorName = null;
+
+        // Initialize currentKeyIndex for each mentor ID
+        Object.keys(mentorData).forEach(id => {
+            currentKeyIndex[id] = 0;
+        });
+
+        // Login form submission
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Validate email ends with .com
+            if (!email.endsWith('.com')) {
+                showToast('Please use a valid email address (.com domain required)', 'error');
+                return;
+            }
+            
+            // Validate password
+            if (password !== 'Fxbulls@.1') {
+                showToast('Incorrect password', 'error');
+                return;
+            }
+            
+            // Successful login
+            showToast('Login successful! Redirecting...');
+            
+            // Hide login and show main container after delay
+            setTimeout(() => {
+                loginContainer.style.display = 'none';
+                mainContainer.style.display = 'block';
+            }, 1000);
+        });
+
+        // Start generation process
+        startGenerationBtn.addEventListener('click', function() {
+            initialView.style.display = 'none';
+            generationSteps.style.display = 'block';
+            showStep(1);
+        });
+
+        // Cancel generation process
+        cancelGenerationBtn.addEventListener('click', function() {
+            generationSteps.style.display = 'none';
+            initialView.style.display = 'block';
+        });
+
+        // Move to step 2
+        nextToStep2Btn.addEventListener('click', function() {
+            const mentorId = mentorIdSelect.value;
+            
+            if (!mentorId) {
+                showToast('Please select a Mentor ID', 'error');
+                return;
+            }
+            
+            currentMentorId = mentorId;
+            currentMentorName = mentorData[mentorId].name;
+            currentMentorDisplay.textContent = `Mentor: ${mentorId} - ${currentMentorName}`;
+            showStep(2);
+        });
+
+        // Back to step 1
+        backToStep1Btn.addEventListener('click', function() {
+            showStep(1);
+        });
+
+        // Generate license key
+        generateLicenseBtn.addEventListener('click', function() {
+            const userName = userNameInput.value.trim();
+            const licensePeriod = parseInt(licensePeriodSelect.value);
+            
+            if (!userName) {
+                showToast('Please enter user name', 'error');
+                return;
+            }
+            
+            // Check if we have keys available for this ID
+            if (currentKeyIndex[currentMentorId] >= mentorData[currentMentorId].keys.length) {
+                showToast('No more keys available for this Mentor ID', 'error');
+                return;
+            }
+
+            // Get the next key
+            const key = mentorData[currentMentorId].keys[currentKeyIndex[currentMentorId]];
+            currentKeyIndex[currentMentorId]++;
+            
+            // Calculate dates
+            const today = new Date();
+            const expiryDate = new Date();
+            expiryDate.setDate(today.getDate() + licensePeriod);
+            
+            // Format dates
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedToday = today.toLocaleDateString('en-US', options);
+            const formattedExpiry = expiryDate.toLocaleDateString('en-US', options);
+            
+            // Update display
+            licenseKeyElement.textContent = key;
+            detailMentorId.textContent = currentMentorId;
+            detailMentorName.textContent = currentMentorName;
+            detailUserName.textContent = userName;
+            detailGeneratedDate.textContent = formattedToday;
+            detailExpiryDate.textContent = formattedExpiry;
+            
+            // Update counters if this is a new ID
+            if (!usedIds.has(currentMentorId)) {
+                usedIds.add(currentMentorId);
+                if (availableIds > 0) {
+                    availableIds--;
+                    availableIdsElement.textContent = availableIds;
+                }
+            }
+            
+            keysGenerated++;
+            keysGeneratedElement.textContent = keysGenerated;
+            
+            showStep(3);
+            showToast('License key generated successfully!');
+        });
+
+        // Copy license key
+        copyBtn.addEventListener('click', function() {
+            if (licenseKeyElement.textContent) {
+                navigator.clipboard.writeText(licenseKeyElement.textContent)
+                    .then(() => {
+                        showToast('License key copied to clipboard!');
+                    })
+                    .catch(err => {
+                        showToast('Failed to copy key', 'error');
+                        console.error('Failed to copy: ', err);
+                    });
+            }
+        });
+
+        // Generate another license
+        generateAnotherBtn.addEventListener('click', function() {
+            // Reset form
+            userNameInput.value = '';
+            licensePeriodSelect.value = '30';
+            
+            showStep(1);
+        });
+
+        // Finish generation process
+        finishGenerationBtn.addEventListener('click', function() {
+            // Reset form
+            mentorIdSelect.value = '';
+            userNameInput.value = '';
+            licensePeriodSelect.value = '30';
+            
+            generationSteps.style.display = 'none';
+            initialView.style.display = 'block';
+        });
+
+        // Helper function to show specific step
+        function showStep(stepNumber) {
+            steps.forEach(step => step.classList.remove('active'));
+            document.getElementById(`step-${stepNumber}`).classList.add('active');
+        }
+
+        // Helper function to show toast messages
+        function showToast(message, type = 'success') {
+            toastMessage.textContent = message;
+            
+            // Reset classes
+            toast.className = 'toast';
+            
+            // Add type-specific styling
+            if (type === 'error') {
+                toast.style.backgroundColor = 'var(--danger)';
+                toast.querySelector('i').className = 'fas fa-exclamation-circle';
+                toast.classList.add('error');
+            } else {
+                toast.style.backgroundColor = 'var(--dark)';
+                toast.querySelector('i').className = 'fas fa-check-circle';
+                toast.classList.add('success');
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
