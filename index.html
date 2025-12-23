@@ -1120,7 +1120,7 @@
                     minPips: 1500
                 }
             },
-            activationCodes: ["FXBULLS#$-BDC-7-YN0-C-M3-MM", "TRAD@1243", "PROFX56-OIJM7", "BULLS80", "ACTIVATE-0987"],
+            activationCodes: ["FXBULLS#$-BDC-7-YN098-LD-AS90-012", "TRAD@1243", "PROFX56-OIJM7", "BULLS20", "ACTIVATE-0987"],
             
             // Enhanced session configurations
             sessions: {
@@ -1282,14 +1282,6 @@
             // Start session update interval
             updateTradingSession();
             setInterval(updateTradingSession, 1000); // Update every second for clock
-            
-            // Start market data refresh interval
-            setInterval(() => {
-                if (localStorage.getItem("loggedIn") === "true") {
-                    const tradingStyle = localStorage.getItem("userTradingStyle");
-                    generateSignal(tradingStyle);
-                }
-            }, 60000); // Refresh every minute
         }
         
         // Toggle hamburger menu
